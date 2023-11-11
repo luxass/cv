@@ -1,3 +1,4 @@
+// @ts-check
 import { writeFile } from "node:fs/promises"
 import process from "node:process"
 import {

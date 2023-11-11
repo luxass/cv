@@ -31,8 +31,21 @@ jobs:
       - name: Install depdencies
         run: pnpm install
 
+
+
       - name: Build PDF
-        run: pnpm build:pdf
+        uses: tj-actions/puppeteer@v5
+        id: build-pdf
+        with:
+          files: |
+            script/build-pdf.mjs
+
+      - name: Copy PDF
+        uses: tj-actions/docker-cp@v2
+        with:
+          container: ${{ steps.build-pdf.outputs.container-id }}
+          source: ${{ steps.build-pdf.outputs.home }}/public/resume.pdf
+          destination: ./public/resume.pdf
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
