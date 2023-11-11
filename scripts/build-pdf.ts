@@ -5,7 +5,9 @@ import {
 } from "puppeteer"
 
 async function run() {
-  const browser = await launch()
+  const browser = await launch({
+    headless: "new",
+  })
   const page = await browser.newPage()
   await page.goto("https://cv.luxass.dev", {
     waitUntil: "networkidle2",

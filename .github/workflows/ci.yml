@@ -39,5 +39,6 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
-      - name: Lint
-        run: pnpm lint
+      # disabled until im publishing my new eslint config
+      # - name: Lint
+      #   run: pnpm lint
