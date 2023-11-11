@@ -1,5 +1,6 @@
 // @ts-check
-import { writeFile } from "node:fs/promises"
+import { existsSync } from "node:fs"
+import { mkdir, writeFile } from "node:fs/promises"
 import process from "node:process"
 import {
   launch,
@@ -27,6 +28,10 @@ async function run() {
   })
 
   await browser.close()
+  if (!existsSync("./public")) {
+    await mkdir("./public")
+  }
+
   await writeFile("./public/resume.pdf", pdf)
   console.log("Wrote resume.pdf to public folder")
 }
