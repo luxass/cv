@@ -38,7 +38,7 @@ jobs:
         id: build-pdf
         with:
           files: |
-            script/build-pdf.mjs
+            scripts/build-pdf.mjs
 
       - name: Copy PDF
         uses: tj-actions/docker-cp@v2
