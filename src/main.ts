@@ -7,9 +7,6 @@ import "@unocss/reset/tailwind.css"
 import "./globals.css"
 import "uno.css"
 
-// const routes = setupLayouts(generatedRoutes)
-
-// https://github.com/antfu/vite-ssg
 export const createApp = ViteSSG(
   App,
   {
