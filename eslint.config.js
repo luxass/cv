@@ -1,7 +1,7 @@
 import {
-  luxass
-} from "@luxass/eslint-config";
+  luxass,
+} from "@luxass/eslint-config"
 
 export default luxass({
-  
-});
+
+})

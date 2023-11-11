@@ -14,14 +14,14 @@ html {
 }
 
 body {
-  @apply text-neutral-800 bg-neutral-100 dark:text-neutral-300 dark:bg-neutral-900 py-8 max-w-2xl md:!mx-auto !mx-4 min-h-100dvh;
+  @apply: text-neutral-800 bg-neutral-100 dark:text-neutral-300 dark:bg-neutral-900 py-8 max-w-2xl md:!mx-auto !mx-4 min-h-100dvh;
 }
 
 #app {
   @apply: flex flex-col h-full;
 }
 
-.prose {
+/* .prose {
   @apply: [&>:not(:last-child)]:mb-6;
 
   & p {
@@ -68,4 +68,4 @@ body {
   & img {
     @apply mx-auto rounded my-6;
   }
-}
+} */

@@ -1,11 +1,11 @@
-import { ViteSSG } from 'vite-ssg'
+import { ViteSSG } from "vite-ssg"
 
-import { routes } from 'vue-router/auto/routes'
-import App from './App.vue'
+import { routes } from "vue-router/auto/routes"
+import App from "./App.vue"
 
-import '@unocss/reset/tailwind.css'
-import './globals.css'
-import 'uno.css'
+import "@unocss/reset/tailwind.css"
+import "./globals.css"
+import "uno.css"
 
 // const routes = setupLayouts(generatedRoutes)
 
@@ -13,7 +13,7 @@ import 'uno.css'
 export const createApp = ViteSSG(
   App,
   {
-    routes: routes,
+    routes,
     base: import.meta.env.BASE_URL,
-  }
+  },
 )

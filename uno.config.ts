@@ -7,7 +7,7 @@ import {
   presetWebFonts,
   transformerDirectives,
   transformerVariantGroup,
-} from "unocss";
+} from "unocss"
 
 export default defineConfig({
   shortcuts: {
@@ -17,10 +17,12 @@ export default defineConfig({
     "border-base": "border-gray/20",
   },
   presets: [
-    presetUno(),
+    presetUno({
+      dark: "media",
+    }),
     presetAttributify(),
     presetIcons({
-      scale: 1.2,
+      scale: 1.3,
     }),
     presetTypography(),
     presetWebFonts({
@@ -30,4 +32,4 @@ export default defineConfig({
     }),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
-});
+})
