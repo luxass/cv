@@ -78,6 +78,6 @@
 
   <section>
     <p>If you wan't to connect, feel free to <a href="mailto:mail@luxass.dev">reach out</a> to me.</p>
-    <p>You can find the <a href="/resume.pdf">PDF Version</a> here.</p>
+    <p>You can find the <a download href="/resume.pdf">PDF Version</a> here.</p>
   </section>
 </template>
