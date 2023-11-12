@@ -1,4 +1,5 @@
 ---
+import Link from "../components/Link.astro";
 import PageLayout from "../layouts/PageLayout.astro";
 
 export const prerender = true;
@@ -38,7 +39,7 @@ export const prerender = true;
 		</div>
 
 		<p>
-			DIAS operates within <a href="https://rm.dk" target="_blank" rel="noopener noreferrer">Region Midtjylland</a> a
+			DIAS operates within <Link href="https://rm.dk">Region Midtjylland</Link> a
 			key component of the Danish healthcare system. It serves as an essential element in delivering healthcare
 			services. We're dedicated to providing customized applications directly to clinicians, ensuring they have the
 			tools they need for optimal healthcare delivery.
@@ -46,27 +47,3 @@ export const prerender = true;
 	</div>
 </section>
 </PageLayout>
-
-<style>
-  @keyframes wiggle {
-    0% {
-      transform: rotate(2deg);
-    }
-
-    40% {
-      transform: rotate(8deg);
-    }
-
-    60% {
-      transform: rotate(1deg);
-    }
-
-    80% {
-      transform: rotate(6deg);
-    }
-
-    100% {
-      transform: rotate(3deg);
-    }
-  }
-</style>

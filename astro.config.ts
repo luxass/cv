@@ -13,9 +13,6 @@ export default defineConfig({
     }),
     sitemap(),
   ],
-  experimental: {
-    contentCollectionCache: true,
-  },
   prefetch: true,
   compressHTML: false,
   output: "server",

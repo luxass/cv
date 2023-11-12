@@ -1,5 +1,4 @@
 ---
-import { ViewTransitions } from "astro:transitions";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
@@ -8,6 +7,7 @@ export interface Props {
   description: string
   image?: string
   class?: string
+	lastUpdated?: string
 }
 
 const {
@@ -22,7 +22,10 @@ const {
     )}`,
   ),
   class: clazz,
+	lastUpdated
 } = Astro.props;
+
+
 ---
 
 <!doctype html>
@@ -56,15 +59,13 @@ const {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />
-
-    <ViewTransitions />
   </head>
   <body class="font-sans prose">
-    <Header transition:animate="none" />
-    <main class="flex-1 p-4" class:list={clazz} transition:animate="slide">
+    <Header />
+    <main class="flex-1 p-4" class:list={clazz}>
       <slot />
     </main>
-    <Footer />
+		<Footer />
     <style is:global>
       html {
         @apply: antialiased touch-manipulation scroll-smooth text-base;
@@ -72,7 +73,7 @@ const {
       }
 
       body {
-        @apply: text-neutral-800 bg-neutral-100 dark:(text-neutral-300 bg-neutral-900) py-8 min-h-screen max-w-2xl md:!mx-auto !mx-4 font-sans flex flex-col justify-between min-h-100dvh;
+        @apply: !text-neutral-800 !bg-neutral-100 dark:(!text-neutral-300 !bg-neutral-900) py-8 min-h-screen max-w-2xl md:!mx-auto !mx-4 font-sans flex flex-col justify-between min-h-100dvh;
       }
     </style>
   </body>
