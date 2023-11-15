@@ -1,52 +1,52 @@
 // @ts-check
-import { existsSync } from "node:fs"
-import { mkdir, readFile, writeFile } from "node:fs/promises"
-import process from "node:process"
+import { existsSync } from "node:fs";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import process from "node:process";
+import {
+  Buffer,
+} from "node:buffer";
 import {
   launch,
-} from "puppeteer"
-
+} from "puppeteer";
 import {
-  getDocument
-} from "pdfjs-dist"
+  getDocument,
+} from "pdfjs-dist";
 
 /**
- * @param {Uint8Array} pdf 
+ * @param {Uint8Array} pdf
  */
 async function getText(pdf) {
-  const pdfDocument = await getDocument(new Uint8Array(pdf.slice())).promise
+  const pdfDocument = await getDocument(new Uint8Array(pdf.slice())).promise;
 
-  let text = ""
+  let text = "";
 
   for (let i = 0; i < pdfDocument.numPages; i++) {
-    const page = await pdfDocument.getPage(i + 1)
-    text += await pageRender(page)
+    const page = await pdfDocument.getPage(i + 1);
+    text += await pageRender(page);
   }
 
   pdfDocument.destroy();
   return text;
 }
 
-
 /**
- * @param {import("pdfjs-dist").PDFPageProxy} page 
+ * @param {import("pdfjs-dist").PDFPageProxy} page
  */
 async function pageRender(page) {
   const textContent = await page.getTextContent({
-    includeMarkedContent: false
+    includeMarkedContent: false,
   });
 
-  let lastY, text = "";
-  for (let item of textContent.items) {
+  let lastY; let text = "";
+  for (const item of textContent.items) {
     if ("type" in item) {
-      throw new Error("Item should not have a type.")
+      throw new Error("Item should not have a type.");
     }
 
-    if (lastY == item.transform[5] || !lastY) {
+    if (lastY === item.transform[5] || !lastY) {
       text += item.str;
-    }
-    else {
-      text += '\n' + item.str;
+    } else {
+      text += `\n${item.str}`;
     }
     lastY = item.transform[5];
   }
@@ -57,11 +57,11 @@ async function pageRender(page) {
 async function run() {
   const browser = await launch({
     headless: "new",
-  })
-  const page = await browser.newPage()
+  });
+  const page = await browser.newPage();
   await page.goto("https://cv.luxass.dev", {
     waitUntil: "networkidle2",
-  })
+  });
 
   const pdfBuffer = await page.pdf({
     format: "A4",
@@ -73,31 +73,29 @@ async function run() {
       left: "0.4in",
       right: "0.4in",
     },
-  })
+  });
 
-  await browser.close()
+  await browser.close();
   if (!existsSync("./public")) {
-    await mkdir("./public")
+    await mkdir("./public");
   }
 
-
-  const pdf = new Uint8Array(Buffer.from(pdfBuffer))
+  const pdf = new Uint8Array(Buffer.from(pdfBuffer));
 
   const oldPDF = existsSync("./public/resume.pdf") ? await getText(new Uint8Array(await readFile("./public/resume.pdf"))) : "";
 
   const newPDF = await getText(pdf);
 
-
   if (oldPDF === newPDF) {
-    console.log("PDF did not change, skipping write")
+    console.log("PDF did not change, skipping write");
     return;
   }
 
-  await writeFile("./public/resume.pdf", pdf)
-  console.log("Wrote resume.pdf to public folder")
+  await writeFile("./public/resume.pdf", pdf);
+  console.log("Wrote resume.pdf to public folder");
 }
 
 run().catch((err) => {
-  console.error(err)
-  process.exit(1)
-})
+  console.error(err);
+  process.exit(1);
+});
