@@ -19,7 +19,6 @@
     "@unocss/reset": "^0.57.3",
     "@vercel/analytics": "^1.1.1",
     "astro": "^3.5.3"
-
   },
   "devDependencies": {
     "@astrojs/vercel": "^5.2.0",
@@ -28,6 +27,7 @@
     "@iconify-json/octicon": "1.1.49",
     "@types/node": "^18.18.9",
     "eslint": "^8.53.0",
+    "pdfjs-dist": "^4.0.189",
     "puppeteer": "^21.5.1",
     "typescript": "^5.2.2",
     "unocss": "^0.57.3",

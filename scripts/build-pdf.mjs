@@ -1,10 +1,58 @@
 // @ts-check
 import { existsSync } from "node:fs"
-import { mkdir, writeFile } from "node:fs/promises"
+import { mkdir, readFile, writeFile } from "node:fs/promises"
 import process from "node:process"
 import {
   launch,
 } from "puppeteer"
+
+import {
+  getDocument
+} from "pdfjs-dist"
+
+/**
+ * @param {Uint8Array} pdf 
+ */
+async function getText(pdf) {
+  const pdfDocument = await getDocument(new Uint8Array(pdf.slice())).promise
+
+  let text = ""
+
+  for (let i = 0; i < pdfDocument.numPages; i++) {
+    const page = await pdfDocument.getPage(i + 1)
+    text += await pageRender(page)
+  }
+
+  pdfDocument.destroy();
+  return text;
+}
+
+
+/**
+ * @param {import("pdfjs-dist").PDFPageProxy} page 
+ */
+async function pageRender(page) {
+  const textContent = await page.getTextContent({
+    includeMarkedContent: false
+  });
+
+  let lastY, text = "";
+  for (let item of textContent.items) {
+    if ("type" in item) {
+      throw new Error("Item should not have a type.")
+    }
+
+    if (lastY == item.transform[5] || !lastY) {
+      text += item.str;
+    }
+    else {
+      text += '\n' + item.str;
+    }
+    lastY = item.transform[5];
+  }
+
+  return text;
+}
 
 async function run() {
   const browser = await launch({
@@ -15,7 +63,7 @@ async function run() {
     waitUntil: "networkidle2",
   })
 
-  const pdf = await page.pdf({
+  const pdfBuffer = await page.pdf({
     format: "A4",
     displayHeaderFooter: false,
     printBackground: true,
@@ -30,6 +78,19 @@ async function run() {
   await browser.close()
   if (!existsSync("./public")) {
     await mkdir("./public")
+  }
+
+
+  const pdf = new Uint8Array(Buffer.from(pdfBuffer))
+
+  const oldPDF = existsSync("./public/resume.pdf") ? await getText(new Uint8Array(await readFile("./public/resume.pdf"))) : "";
+
+  const newPDF = await getText(pdf);
+
+
+  if (oldPDF === newPDF) {
+    console.log("PDF did not change, skipping write")
+    return;
   }
 
   await writeFile("./public/resume.pdf", pdf)
