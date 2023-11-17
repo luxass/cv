@@ -42,34 +42,29 @@ jobs:
         with:
           image: ghcr.io/puppeteer/puppeteer:21.5.2
           name: puppeteer-chrome
-          options: "-v ${{ github.workspace }}:${{ github.workspace }}"
+          options: "-i --init --cap-add=SYS_ADMIN -v ${{ github.workspace }}:${{ github.workspace }}"
           args: |
             ls -la
-            pwd
-            cat package.json
-            npm install pdfjs-dist
-            cat package.json
-            npm run build:pdf
         
-      - name: Copy PDF
-        uses: tj-actions/docker-cp@v2
-        with:
-          container: ${{ steps.build-pdf.outputs.container-id }}
-          source: /home/runner/cv/cv/public/resume.pdf
-          destination: ./public/resume.pdf
+      # - name: Copy PDF
+      #   uses: tj-actions/docker-cp@v2
+      #   with:
+      #     container: ${{ steps.build-pdf.outputs.container-id }}
+      #     source: /home/runner/cv/cv/public/resume.pdf
+      #     destination: ./public/resume.pdf
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        if: ${{ github.event.inputs.dry-run != 'true' }}
-        with:
-          commit-message: "feat: updated pdf file"
-          title: "feat: updated pdf file"
-          body: |
-            This is an automated PR to update the PDF file.
+      # - name: Create Pull Request
+      #   uses: peter-evans/create-pull-request@v5
+      #   if: ${{ github.event.inputs.dry-run != 'true' }}
+      #   with:
+      #     commit-message: "feat: updated pdf file"
+      #     title: "feat: updated pdf file"
+      #     body: |
+      #       This is an automated PR to update the PDF file.
 
-            If you want to merge this PR, please review the changes and merge it manually.
-          branch: update-pdf
-          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-          assignees: luxass
-          base: main
+      #       If you want to merge this PR, please review the changes and merge it manually.
+      #     branch: update-pdf
+      #     committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+      #     author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+      #     assignees: luxass
+      #     base: main
