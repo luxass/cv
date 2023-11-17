@@ -37,11 +37,18 @@ jobs:
           name: puppeteer-chrome
           options: "-i --init --cap-add=SYS_ADMIN -v ${{ github.workspace }}:${{ github.workspace }}"
           args: |
+            echo "Checking"
+            pwd
             ls -la
-            cp ${{ github.workspace }}/scripts/build-pdf.mjs build-pdf.mjs
+            echo "Checking"
+            pwd
             ls -la
-            npm install
-            node build-pdf.mjs
+            echo "Checking"
+            pwd
+            ls -la
+            echo "Running install"
+            npm install -g pnpm
+            pnpm install
             ls -la
         
       - name: Copy PDF
