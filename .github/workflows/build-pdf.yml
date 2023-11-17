@@ -44,7 +44,31 @@ jobs:
           name: puppeteer-chrome
           options: "-i --init --cap-add=SYS_ADMIN -v ${{ github.workspace }}:${{ github.workspace }}"
           args: |
-            bash -c "pwd && ls -la"
+            bash -c '
+            files=("package.json" "scripts/build-pdf.mjs")
+            
+            for file in "${files[@]}"; do
+              echo "Copying $file..."
+              
+              # Set up the target directory in /home/pptruser/build-pdf
+              target_dir="/home/pptruser/build-pdf/$(basename "$file")"
+              mkdir -p "$target_dir"
+              
+              # Specify the source and destination files
+              source_file="${{ github.workspace }}/$file"
+              destination_file="$target_dir/$(basename "$file")"
+              
+              # Copy the file to the target directory
+              cp "$source_file" "$destination_file"
+              
+              echo "Copied $file to $destination_file"
+            done
+            
+            # Run npm install after copying files
+            cd /home/pptruser/build-pdf && npm install
+            ls -la /home/pptruser/build-pdf
+            ls -la /home/pptruser
+            '
         
       # - name: Copy PDF
       #   uses: tj-actions/docker-cp@v2
