@@ -1,6 +1,12 @@
 name: Build PDF
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/build-pdf.yml"
+
   workflow_dispatch:
     inputs:
       dry-run:
@@ -37,6 +43,8 @@ jobs:
           name: puppeteer-chrome
           options: "-i --init --cap-add=SYS_ADMIN -v ${{ github.workspace }}:${{ github.workspace }}"
           args: |
+            cat package.json
+            npm install pdfjs-dist
             cat package.json
             npm run build:pdf
         
