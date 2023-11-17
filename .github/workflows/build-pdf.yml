@@ -33,13 +33,14 @@ jobs:
         uses: tj-actions/docker-run@v2
         id: build-pdf
         with:
-          image: ghcr.io/puppeteer/puppeteer:21.3.8
+          image: ghcr.io/puppeteer/puppeteer:21.5.2
           name: puppeteer-chrome
           options: "-i --init --cap-add=SYS_ADMIN -v ${{ github.workspace }}:${{ github.workspace }}"
           args: |
-            ls
+            ls -la
+            cat package.json
             mkdir -p /home/pptruser/build-pdf
-            ls
+            ls -la
             cp ${{ github.workspace }}/scripts/build-pdf.mjs /home/pptruser/build-pdf
             cp ${{ github.workspace }}/package.json /home/pptruser/build-pdf
             cd /home/pptruser/build-pdf
