@@ -51,12 +51,12 @@ jobs:
               echo "Copying $file..."
               
               # Set up the target directory in /home/pptruser/build-pdf
-              target_dir="/home/pptruser/build-pdf/$(dirname "$file")"
+              target_dir="/home/pptruser/build-pdf"
               mkdir -p "$target_dir"
               
               # Specify the source and destination files
               source_file="${{ github.workspace }}/$file"
-              destination_file="$target_dir/$(dirname "$file")"
+              destination_file="$target_dir/$(basename "$file")"
               
               # Copy the file to the target directory
               cp "$source_file" "$destination_file"
