@@ -37,6 +37,7 @@ jobs:
           name: puppeteer-chrome
           options: "-i --init --cap-add=SYS_ADMIN -v ${{ github.workspace }}:${{ github.workspace }}"
           args: |
+            cat package.json
             npm run build:pdf
         
       - name: Copy PDF
