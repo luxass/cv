@@ -38,11 +38,11 @@ jobs:
           options: "-i --init --cap-add=SYS_ADMIN -v ${{ github.workspace }}:${{ github.workspace }}"
           args: |
             ls -la
-            cp ${{ github.workspace }}/scripts/build-pdf.mjs /home/pptruser/build-pdf
-            cp ${{ github.workspace }}/package.json /home/pptruser/build-pdf
+            cp ${{ github.workspace }}/scripts/build-pdf.mjs build-pdf.mjs
             ls -la
             npm install
             node build-pdf.mjs
+            ls -la
         
       - name: Copy PDF
         uses: tj-actions/docker-cp@v2
