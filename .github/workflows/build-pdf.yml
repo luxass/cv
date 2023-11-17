@@ -51,12 +51,12 @@ jobs:
               echo "Copying $file..."
               
               # Set up the target directory in /home/pptruser/build-pdf
-              target_dir="/home/pptruser/build-pdf/$(basename "$file")"
+              target_dir="/home/pptruser/build-pdf/$(dirname "$file")"
               mkdir -p "$target_dir"
               
               # Specify the source and destination files
               source_file="${{ github.workspace }}/$file"
-              destination_file="$target_dir/$(basename "$file")"
+              destination_file="$target_dir/$(dirname "$file")"
               
               # Copy the file to the target directory
               cp "$source_file" "$destination_file"
@@ -64,18 +64,21 @@ jobs:
               echo "Copied $file to $destination_file"
             done
             
+            cd /home/pptruser/build-pdf
             # Run npm install after copying files
-            cd /home/pptruser/build-pdf && npm install
-            ls -la /home/pptruser/build-pdf
-            ls -la /home/pptruser
+            npm install
+            
+            # running the build-pdf
+            node build-pdf.mjs
+
             '
         
-      # - name: Copy PDF
-      #   uses: tj-actions/docker-cp@v2
-      #   with:
-      #     container: ${{ steps.build-pdf.outputs.container-id }}
-      #     source: /home/runner/cv/cv/public/resume.pdf
-      #     destination: ./public/resume.pdf
+      - name: Copy PDF
+        uses: tj-actions/docker-cp@v2
+        with:
+          container: ${{ steps.build-pdf.outputs.container-id }}
+          source: /home/pptruser/build-pdf/public/resume.pdf
+          destination: ./public/resume.pdf
 
       # - name: Create Pull Request
       #   uses: peter-evans/create-pull-request@v5
