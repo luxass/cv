@@ -18,6 +18,7 @@ on:
 
 jobs:
   build-pdf:
+    name: Build PDF
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -41,8 +42,10 @@ jobs:
         with:
           image: ghcr.io/puppeteer/puppeteer:21.5.2
           name: puppeteer-chrome
-          options: "-i --init --cap-add=SYS_ADMIN -v ${{ github.workspace }}:${{ github.workspace }}"
+          options: "-v ${{ github.workspace }}:${{ github.workspace }}"
           args: |
+            ls -la
+            pwd
             cat package.json
             npm install pdfjs-dist
             cat package.json
