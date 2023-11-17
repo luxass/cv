@@ -45,6 +45,10 @@ jobs:
           options: "-i --init --cap-add=SYS_ADMIN -v ${{ github.workspace }}:${{ github.workspace }}"
           args: |
             ls -la
+            pwd
+            cd ~
+            ls -la
+            pwd
         
       # - name: Copy PDF
       #   uses: tj-actions/docker-cp@v2
