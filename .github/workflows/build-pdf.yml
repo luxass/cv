@@ -37,25 +37,15 @@ jobs:
           name: puppeteer-chrome
           options: "-i --init --cap-add=SYS_ADMIN -v ${{ github.workspace }}:${{ github.workspace }}"
           args: |
-            echo "Checking"
-            pwd
-            ls -la
-            echo "Checking"
-            pwd
-            ls -la
-            echo "Checking"
-            pwd
-            ls -la
-            echo "Running install"
             npm install -g pnpm
             pnpm install
-            ls -la
+            pnpm run build:pdf
         
       - name: Copy PDF
         uses: tj-actions/docker-cp@v2
         with:
           container: ${{ steps.build-pdf.outputs.container-id }}
-          source: /home/pptruser/build-pdf/public/resume.pdf
+          source: /home/runner/cv/cv/public/resume.pdf
           destination: ./public/resume.pdf
 
       - name: Create Pull Request
