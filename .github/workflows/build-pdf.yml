@@ -44,17 +44,7 @@ jobs:
           name: puppeteer-chrome
           options: "-i --init --cap-add=SYS_ADMIN -v ${{ github.workspace }}:${{ github.workspace }}"
           args: |
-            pwd
-            ls -la
-            cat package.json
-            pwd
-            ls -la
-            cat package.json
-            pwd
-            ls -la
-            cat package.json
-            pnpm install
-            pnpm run build:pdf
+            bash -c "pwd ls -la pwa"
         
       # - name: Copy PDF
       #   uses: tj-actions/docker-cp@v2
