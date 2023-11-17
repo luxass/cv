@@ -33,7 +33,7 @@ jobs:
           node-version: 18
           cache: pnpm
 
-      - name: Install depdencies
+      - name: Install dependencies
         run: pnpm install
 
       - name: Build PDF
@@ -53,6 +53,8 @@ jobs:
             pwd
             ls -la
             cat package.json
+            pnpm install
+            pnpm run build:pdf
         
       # - name: Copy PDF
       #   uses: tj-actions/docker-cp@v2
