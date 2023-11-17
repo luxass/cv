@@ -68,13 +68,15 @@ jobs:
               echo "Copied $file to $destination_file"
             done
             
-            cd /home/pptruser/build-pdf
+            # copy public to target dir
+            cp -r "${{ github.workspace }}/public" "$target_dir"
+
+            cd $target_dir
             # Run npm install after copying files
             npm install
             
             # running the build-pdf
             node build-pdf.mjs
-
             '
         
       - name: Copy PDF
