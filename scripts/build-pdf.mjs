@@ -37,7 +37,8 @@ async function pageRender(page) {
     includeMarkedContent: false,
   });
 
-  let lastY; let text = "";
+  let lastY;
+  let text = "";
   for (const item of textContent.items) {
     if ("type" in item) {
       throw new Error("Item should not have a type.");

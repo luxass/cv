@@ -16,8 +16,6 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.ROBOBUB_TOKEN }}
 
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
@@ -31,20 +29,26 @@ jobs:
       - name: Install depdencies
         run: pnpm install
 
-
-
       - name: Build PDF
-        uses: tj-actions/puppeteer@v5
+        uses: tj-actions/docker-run@v2
         id: build-pdf
         with:
-          files: |
-            scripts/build-pdf.mjs
-
+          image: ghcr.io/puppeteer/puppeteer:21.3.8
+          name: puppeteer-chrome
+          options: "-i --init --cap-add=SYS_ADMIN -v ${{ github.workspace }}:${{ github.workspace }}"
+          args: |
+            mkdir -p /home/pptruser/build-pdf
+            cp ${{ github.workspace }}/scripts/build-pdf.mjs /home/pptruser/build-pdf
+            cp ${{ github.workspace }}/package.json /home/pptruser/build-pdf
+            cd /home/pptruser/build-pdf
+            npm install
+            node build-pdf.mjs
+        
       - name: Copy PDF
         uses: tj-actions/docker-cp@v2
         with:
           container: ${{ steps.build-pdf.outputs.container-id }}
-          source: ${{ steps.build-pdf.outputs.home }}/public/resume.pdf
+          source: /home/pptruser/build-pdf/public/resume.pdf
           destination: ./public/resume.pdf
 
       - name: Create Pull Request
@@ -58,7 +62,7 @@ jobs:
 
             If you want to merge this PR, please review the changes and merge it manually.
           branch: update-pdf
-          author: robobub <bot@luxass.dev>
+          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          assignees: luxass
           base: main
-          reviewers: luxass
-          token: ${{ secrets.ROBOBUB_TOKEN }}
