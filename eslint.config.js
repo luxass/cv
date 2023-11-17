@@ -1,5 +1,5 @@
 import {
-  setup,
+  luxass,
 } from "@luxass/eslint-config";
 
-export default setup({});
+export default luxass({});

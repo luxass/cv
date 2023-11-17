@@ -1,8 +1,8 @@
-import { defineConfig } from "astro/config"
-import unocss from "unocss/astro"
-import sitemap from "@astrojs/sitemap"
-import vercel from "@astrojs/vercel/serverless"
-import Icons from "unplugin-icons/vite"
+import { defineConfig } from "astro/config";
+import unocss from "unocss/astro";
+import sitemap from "@astrojs/sitemap";
+import vercel from "@astrojs/vercel/serverless";
+import Icons from "unplugin-icons/vite";
 
 // https://astro.build/config
 export default defineConfig({
@@ -30,4 +30,4 @@ export default defineConfig({
       }),
     ],
   },
-})
+});
