@@ -7,7 +7,7 @@ export interface Props {
   description: string
   image?: string
   class?: string
-	lastUpdated?: string
+  lastUpdated?: string
 }
 
 const {
@@ -22,10 +22,7 @@ const {
     )}`,
   ),
   class: clazz,
-	lastUpdated
 } = Astro.props;
-
-
 ---
 
 <!doctype html>
@@ -65,7 +62,7 @@ const {
     <main class="flex-1 p-4" class:list={clazz}>
       <slot />
     </main>
-		<Footer />
+    <Footer />
     <style is:global>
       html {
         @apply: antialiased touch-manipulation scroll-smooth text-base;
