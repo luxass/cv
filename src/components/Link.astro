@@ -4,9 +4,9 @@ import type { HTMLAttributes } from "astro/types";
 type Platform = "github" | "twitter" | "x" | "linkedin";
 
 export interface Props extends HTMLAttributes<"a"> {
-  href: `${Platform}:${string}` | (string & {})
-  class?: string
-  underline?: boolean
+  href: `${Platform}:${string}` | (string & {});
+  class?: string;
+  underline?: boolean;
 }
 
 let { href, underline = false, class: clazz, ...props } = Astro.props;

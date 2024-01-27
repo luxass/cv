@@ -5,4 +5,5 @@ import {
 
 export default await luxass({
   unocss: true,
+  astro: true,
 });
