@@ -1,26 +1,23 @@
 ---
+import { Icon } from "astro-icon/components";
 import Link from "./Link.astro";
-
-import GitHubIcon from "~icons/carbon/LogoGithub";
-import LinkedInIcon from "~icons/carbon/LogoLinkedin";
-import Email from "~icons/carbon/Email";
 ---
 
 <header>
   <div class="hidden print:(flex flex-col gap-y-2)">
     <Link href="mailto:mail@luxass.dev" aria-label="Email" class="inline-flex items-center gap-1">
-      <Email class="text-xl" />
+      <Icon name="carbon:email" class="text-xl" />
        Mail:
       <span>mail@luxass.dev</span>
     </Link>
     <Link href="https://github.com/luxass" aria-label="GitHub" class="inline-flex items-center gap-1">
-      <GitHubIcon class="text-xl" />
+      <Icon name="carbon:logo-github" class="text-xl" />
        GitHub:
       <span>github.com/luxass</span>
     </Link>
 
     <Link href="https://www.linkedin.com/in/luxass/" aria-label="LinkedIn" class="inline-flex items-center gap-1">
-      <LinkedInIcon class="text-xl" />
+      <Icon name="carbon:logo-linkedin" class="text-xl" />
        LinkedIn:
       <span>linkedin.com/in/luxass</span>
     </Link>
@@ -29,16 +26,16 @@ import Email from "~icons/carbon/Email";
     <h1>Lucas Nørgård</h1>
     <div class="flex gap-x-4 print:hidden">
       <Link href="mailto:mail@luxass.dev" aria-label="Email" class="inline-flex items-center gap-1 transition-transform active:scale-95 no-underline">
-        <Email class="text-xl" />
+        <Icon name="carbon:email" class="text-xl" />
          Mail
       </Link>
       <Link href="https://github.com/luxass" aria-label="GitHub" class="inline-flex items-center gap-1 transition-transform active:scale-95 no-underline">
-        <GitHubIcon class="text-xl" />
+        <Icon name="carbon:logo-github" class="text-xl" />
          GitHub
       </Link>
 
       <Link href="https://www.linkedin.com/in/luxass" aria-label="LinkedIn" class="inline-flex items-center gap-1 transition-transform active:scale-95 no-underline">
-        <LinkedInIcon class="text-xl" />
+        <Icon name="carbon:logo-linkedin" class="text-xl" />
          LinkedIn
       </Link>
     </div>
