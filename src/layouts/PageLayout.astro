@@ -53,8 +53,10 @@ const {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />
+
+    <link rel="preload" href="/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
   </head>
-  <body class="font-sans prose">
+  <body class="prose">
     <Header />
     <main class="flex-1 p-4" class:list={clazz}>
       <slot />
@@ -68,6 +70,15 @@ const {
 
       body {
         @apply: !text-neutral-800 !bg-neutral-100 dark:(!text-neutral-300 !bg-neutral-900) py-8 min-h-screen max-w-3xl md:!mx-auto !mx-4 font-sans flex flex-col justify-between min-h-100dvh;
+        font-family: "DM Sans", "DM Sans Fallback";
+      }
+
+      @font-face {
+        font-family: "DM Sans";
+        src: url("/fonts/dm-sans.woff2") format("woff2");
+        font-weight: 300 900;
+        font-style: normal;
+        font-display: swap;
       }
     </style>
   </body>

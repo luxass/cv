@@ -1,21 +1,23 @@
 import { defineConfig } from "astro/config";
 import unocss from "unocss/astro";
-import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel/serverless";
-import Icons from "unplugin-icons/vite";
+import icon from "astro-icon";
+import { FontaineTransform } from "fontaine";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://luxass.dev",
   integrations: [
     unocss({
       injectReset: true,
     }),
-    sitemap(),
+    icon(),
   ],
-  prefetch: true,
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "load",
+  },
   compressHTML: false,
-  output: "server",
+  output: "hybrid",
   adapter: vercel({
     webAnalytics: {
       enabled: true,
@@ -25,8 +27,9 @@ export default defineConfig({
   }),
   vite: {
     plugins: [
-      Icons({
-        compiler: "astro",
+      FontaineTransform.vite({
+        fallbacks: ["Arial"],
+        resolvePath: (id) => new URL(`./public${id}`, import.meta.url), // id is the font src value in the CSS
       }),
     ],
   },
