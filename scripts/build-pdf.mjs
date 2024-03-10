@@ -57,7 +57,7 @@ async function pageRender(page) {
 
 async function run() {
   const browser = await launch({
-    headless: "new",
+    headless: true,
   });
   const page = await browser.newPage();
   await page.goto("https://cv.luxass.dev", {
