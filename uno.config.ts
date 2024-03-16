@@ -4,14 +4,14 @@ import {
   presetUno,
   transformerDirectives,
   transformerVariantGroup,
-} from "unocss";
+} from 'unocss'
 
 export default defineConfig({
   presets: [
     presetUno({
-      dark: "media",
+      dark: 'media',
     }),
     presetTypography(),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
-});
+})
