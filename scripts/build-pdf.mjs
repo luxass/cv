@@ -1,6 +1,7 @@
 // @ts-check
 import { existsSync } from 'node:fs'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
+// @ts-ignore
 import process from 'node:process'
 import {
   Buffer,
@@ -11,6 +12,15 @@ import {
 import {
   getDocument,
 } from 'pdfjs-dist'
+
+// @ts-ignore
+Promise.withResolvers || (Promise.withResolvers = function withResolvers() {
+  var a, b, c = new this(function (resolve, reject) {
+    a = resolve;
+    b = reject;
+  });
+  return {resolve: a, reject: b, promise: c};
+});
 
 /**
  * @param {Uint8Array} pdf
