@@ -73,15 +73,8 @@ jobs:
 
             cd $target_dir
 
-            mkdir ~/.npm-global
-
-            npm config set prefix '~/.npm-global'
-
-            NPM_CONFIG_PREFIX=~/.npm-global
-
             # run npm install after copying files
-            npm install -g pnpm
-            pnpm install
+            npm install --force
 
             # running the build-pdf
             node build-pdf.mjs
