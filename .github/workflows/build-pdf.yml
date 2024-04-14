@@ -72,8 +72,12 @@ jobs:
             cp -r "${{ github.workspace }}/public" "$target_dir"
 
             cd $target_dir
-            # Run npm install after copying files
-            npm install
+
+            # install pnpm
+            npm install -g pnpm
+
+            # run pnpm install after copying files
+            pnpm install
 
             # running the build-pdf
             node build-pdf.mjs
