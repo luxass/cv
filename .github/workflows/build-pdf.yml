@@ -73,10 +73,14 @@ jobs:
 
             cd $target_dir
 
-            # enable pnpm
-            sudo corepack enable pnpm
+            mkdir ~/.npm-global
 
-            # run pnpm install after copying files
+            npm config set prefix '~/.npm-global'
+
+            NPM_CONFIG_PREFIX=~/.npm-global
+
+            # run npm install after copying files
+            npm install -g pnpm
             pnpm install
 
             # running the build-pdf
