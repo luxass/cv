@@ -73,8 +73,8 @@ jobs:
 
             cd $target_dir
 
-            # install pnpm
-            npm install -g pnpm
+            # enable pnpm
+            corepack enable pnpm
 
             # run pnpm install after copying files
             pnpm install
