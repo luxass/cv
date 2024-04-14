@@ -74,7 +74,7 @@ jobs:
             cd $target_dir
 
             # enable pnpm
-            corepack enable pnpm
+            sudo corepack enable pnpm
 
             # run pnpm install after copying files
             pnpm install
