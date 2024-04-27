@@ -35,8 +35,8 @@ devDependencies:
     specifier: 1.1.42
     version: 1.1.42
   '@iconify-json/octicon':
-    specifier: 1.1.53
-    version: 1.1.53
+    specifier: 1.1.54
+    version: 1.1.54
   '@luxass/eslint-config':
     specifier: ^4.3.7
     version: 4.3.7(@unocss/eslint-plugin@0.59.2)(@vue/compiler-sfc@3.4.21)(astro-eslint-parser@0.17.0)(eslint-plugin-astro@0.34.0)(eslint-plugin-format@0.1.0)(eslint@9.0.0)(prettier-plugin-astro@0.13.0)(typescript@5.4.5)
@@ -1070,8 +1070,8 @@ packages:
       '@iconify/types': 2.0.0
     dev: true
 
-  /@iconify-json/octicon@1.1.53:
-    resolution: {integrity: sha512-QaVwZsO7v4F5J1oj3uhxLXYA4fCzrvWFlruyMXOhUDZtrKTc6Vb5nIO1b7A4NOwzlTW638XZzHW70PnE0V0F8g==}
+  /@iconify-json/octicon@1.1.54:
+    resolution: {integrity: sha512-1sKH5THuE9pMg7r4e/31vHaHJMBU32QdDLBt0riKt+4NXhEkF39AMxITGREagO4TeCw6ygqDgouj9ZE2y0l+Tg==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
