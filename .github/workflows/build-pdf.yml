@@ -73,14 +73,10 @@ jobs:
 
             cd $target_dir
 
+            npx puppeteer browsers install chrome
+
             # run npm install after copying files
             npm install --force
-
-            ls -la
-
-            ls -la ..
-
-            ls -la node_modules
 
             # running the build-pdf
             node build-pdf.mjs
