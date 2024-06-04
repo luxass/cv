@@ -8,9 +8,6 @@ import {
 import {
   launch,
 } from 'puppeteer'
-import {
-  getDocument,
-} from 'pdfjs-dist'
 
 // @ts-expect-error testing
 Promise.withResolvers || (Promise.withResolvers = function withResolvers() {
@@ -27,7 +24,9 @@ Promise.withResolvers || (Promise.withResolvers = function withResolvers() {
  * @param {Uint8Array} pdf
  */
 async function getText(pdf) {
-  const pdfDocument = await getDocument(new Uint8Array(pdf.slice())).promise
+  const pdfjs = await import('pdfjs-dist').then((m) => m.default || m)
+
+  const pdfDocument = await pdfjs.getDocument(new Uint8Array(pdf.slice())).promise
 
   let text = ''
 
