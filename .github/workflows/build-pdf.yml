@@ -49,7 +49,7 @@ jobs:
           options: '-i --init --cap-add=SYS_ADMIN -v ${{ github.workspace }}:${{ github.workspace }}'
           args: |
             bash -c '
-            files=("node_modules" "package.json" "scripts/build-pdf.mjs")
+            files=("package.json" "scripts/build-pdf.mjs")
 
             for file in "${files[@]}"; do
               echo "Copying $file..."
@@ -63,7 +63,7 @@ jobs:
               destination_file="$target_dir/$(basename "$file")"
 
               # Copy the file to the target directory
-              cp "$source_file" "$destination_file"
+              cp -r "$source_file" "$destination_file"
 
               echo "Copied $file to $destination_file"
             done
