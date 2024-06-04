@@ -78,7 +78,7 @@ jobs:
 
             ls -la
 
-            ls -la node_modules
+            ls -la ..
 
             # running the build-pdf
             node build-pdf.mjs
