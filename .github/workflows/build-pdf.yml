@@ -49,7 +49,7 @@ jobs:
           options: '-i --init --cap-add=SYS_ADMIN -v ${{ github.workspace }}:${{ github.workspace }}'
           args: |
             bash -c '
-            files=("package.json" "scripts/build-pdf.mjs")
+            files=("node_modules" "package.json" "scripts/build-pdf.mjs")
 
             for file in "${files[@]}"; do
               echo "Copying $file..."
@@ -79,6 +79,8 @@ jobs:
             ls -la
 
             ls -la ..
+
+            ls -la node_modules
 
             # running the build-pdf
             node build-pdf.mjs
