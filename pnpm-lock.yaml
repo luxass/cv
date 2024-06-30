@@ -37,8 +37,8 @@ importers:
         specifier: 1.1.42
         version: 1.1.42
       '@iconify-json/octicon':
-        specifier: 1.1.54
-        version: 1.1.54
+        specifier: 1.1.55
+        version: 1.1.55
       '@luxass/eslint-config':
         specifier: ^4.5.0
         version: 4.5.0(@unocss/eslint-plugin@0.60.4(eslint@9.4.0)(typescript@5.4.5))(@vue/compiler-sfc@3.4.27)(astro-eslint-parser@1.0.2(typescript@5.4.5))(eslint-plugin-astro@1.2.0(eslint@9.4.0)(typescript@5.4.5))(eslint-plugin-format@0.1.1(eslint@9.4.0))(eslint@9.4.0)(prettier-plugin-astro@0.14.0)(typescript@5.4.5)
@@ -662,8 +662,8 @@ packages:
   '@iconify-json/logos@1.1.42':
     resolution: {integrity: sha512-/f+frtPm3m3Z30oy8Pk+QqRDkbmAiIaWGPl5CmsCXm15MVfvw9a/V/gD7WzdyuSGAZcFuQaqbHXj92y/n+2ifg==}
 
-  '@iconify-json/octicon@1.1.54':
-    resolution: {integrity: sha512-1sKH5THuE9pMg7r4e/31vHaHJMBU32QdDLBt0riKt+4NXhEkF39AMxITGREagO4TeCw6ygqDgouj9ZE2y0l+Tg==}
+  '@iconify-json/octicon@1.1.55':
+    resolution: {integrity: sha512-TWVO7olfquviijdmdrEbvpjPTxBmVvU0ZoR9BBx9pIhvEsG7emefrLg7eZm1CYGYM+9StkksDbqha8HCy/6kzQ==}
 
   '@iconify/tools@3.0.7':
     resolution: {integrity: sha512-DxfhFLMnooS34dHelpGUnnYrxLZHs0czC1CgrBhAbuL8ddVzBb2VEQm8kh9qGh7A34qeXAB5iSHH3A72rAaFrg==}
@@ -4560,7 +4560,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/octicon@1.1.54':
+  '@iconify-json/octicon@1.1.55':
     dependencies:
       '@iconify/types': 2.0.0
 
