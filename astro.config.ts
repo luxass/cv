@@ -1,8 +1,8 @@
-import { defineConfig } from 'astro/config'
-import unocss from 'unocss/astro'
-import vercel from '@astrojs/vercel/serverless'
-import icon from 'astro-icon'
-import { FontaineTransform } from 'fontaine'
+import { defineConfig } from "astro/config";
+import unocss from "unocss/astro";
+import vercel from "@astrojs/vercel/serverless";
+import icon from "astro-icon";
+import { FontaineTransform } from "fontaine";
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,10 +14,10 @@ export default defineConfig({
   ],
   prefetch: {
     prefetchAll: true,
-    defaultStrategy: 'load',
+    defaultStrategy: "load",
   },
   compressHTML: false,
-  output: 'hybrid',
+  output: "hybrid",
   adapter: vercel({
     webAnalytics: {
       enabled: true,
@@ -28,9 +28,9 @@ export default defineConfig({
   vite: {
     plugins: [
       FontaineTransform.vite({
-        fallbacks: ['Arial'],
+        fallbacks: ["Arial"],
         resolvePath: (id) => new URL(`./public${id}`, import.meta.url), // id is the font src value in the CSS
       }),
     ],
   },
-})
+});
