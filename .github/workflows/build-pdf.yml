@@ -26,13 +26,13 @@ jobs:
     timeout-minutes: 10
     if: ${{ github.repository_owner == 'luxass' }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.1.7
 
       - name: Setup PNPM
         uses: pnpm/action-setup@v4.0.0
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4.0.2
         with:
           node-version: 18
           cache: pnpm
@@ -41,7 +41,7 @@ jobs:
         run: pnpm install
 
       - name: Build PDF
-        uses: tj-actions/docker-run@v2
+        uses: tj-actions/docker-run@v2.2.1
         id: build-pdf
         with:
           image: ghcr.io/puppeteer/puppeteer:21.5.2
@@ -83,14 +83,14 @@ jobs:
             '
 
       - name: Copy PDF
-        uses: tj-actions/docker-cp@v2
+        uses: tj-actions/docker-cp@v2.0.2
         with:
           container: ${{ steps.build-pdf.outputs.container-id }}
           source: /home/pptruser/build-pdf/public/resume.pdf
           destination: ./public/resume.pdf
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v6.1.0
         if: ${{ github.event.inputs.dry-run != 'true' }}
         with:
           commit-message: "feat: updated pdf file"
