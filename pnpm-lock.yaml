@@ -70,7 +70,7 @@ importers:
         specifier: ^22.12.1
         version: 22.12.1(typescript@5.5.3)
       typescript:
-        specifier: ^5.5.2
+        specifier: ^5.5.3
         version: 5.5.3
       unocss:
         specifier: ^0.61.3
