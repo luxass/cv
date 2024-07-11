@@ -10,6 +10,7 @@ import {
 } from "puppeteer";
 
 // @ts-expect-error testing
+// eslint-disable-next-line ts/no-unused-expressions
 Promise.withResolvers || (Promise.withResolvers = function withResolvers() {
   let a;
   let b;
