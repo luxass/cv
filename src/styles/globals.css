@@ -4,6 +4,6 @@ html {
 }
 
 body {
-  @apply: !text-neutral-800 !bg-neutral-100 dark:(!text-neutral-300 !bg-neutral-900) p-8 sm:p-12 md:p-16 lg:p-20 xl:p-24 max-w-4xl mx-auto flex flex-col justify-between min-h-100dvh;
-  font-family: "Inter"
+  @apply: !text-neutral-800 !bg-neutral-100 dark:( !text-neutral-300 !bg-neutral-900) p-8 sm:p-12 md:p-16 lg:p-20 xl:p-24 max-w-4xl mx-auto flex flex-col justify-between min-h-100dvh;
+  font-family: "Inter";
 }
