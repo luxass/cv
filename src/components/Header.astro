@@ -3,67 +3,44 @@ import { Icon } from "astro-icon/components";
 import Link from "./Link.astro";
 ---
 
-<header>
-  <div class="hidden print:(flex flex-col gap-y-2)">
-    <Link
-      href="mailto:mail@luxass.dev"
-      aria-label="Email"
-      class="inline-flex items-center gap-1"
-    >
-      <Icon name="carbon:email" class="text-xl" />
-      Mail:
-      <span>mail@luxass.dev</span>
-    </Link>
-    <Link
-      href="https://github.com/luxass"
-      aria-label="GitHub"
-      class="inline-flex items-center gap-1"
-    >
-      <Icon name="carbon:logo-github" class="text-xl" />
-      GitHub:
-      <span>github.com/luxass</span>
-    </Link>
-
-    <Link
-      href="https://www.linkedin.com/in/luxass/"
-      aria-label="LinkedIn"
-      class="inline-flex items-center gap-1"
-    >
-      <Icon name="carbon:logo-linkedin" class="text-xl" />
-      LinkedIn:
-      <span>linkedin.com/in/luxass</span>
-    </Link>
-  </div>
-  <div
-    class="flex flex-col gap-x-4 sm:flex-row sm:items-center sm:justify-between"
-  >
-    <h1>Lucas Nørgård</h1>
-    <div class="flex gap-x-4 print:hidden">
-      <Link
+<header class="mb-8 sm:mb-12">
+  <h1 class="text-3xl sm:text-4xl font-semibold mb-2">Lucas Nørgård</h1>
+  <div class="flex flex-wrap gap-4 text-muted-foreground">
+    <div class="flex items-center">
+      <Icon name="ph:envelope-simple" class="inline-block mr-2" size={20} />
+      <a
         href="mailto:mail@luxass.dev"
-        aria-label="Email"
-        class="inline-flex items-center gap-1 transition-transform active:scale-95 no-underline"
+        class="transition-transform active:scale-95">mail@luxass.dev</a
       >
-        <Icon name="carbon:email" class="text-xl" />
-        Mail
-      </Link>
-      <Link
+    </div>
+    <div class="flex items-center">
+      <Icon name="ph:globe" class="inline-block mr-2" size={20} />
+      <a
+        href="https://luxass.dev"
+        target="_blank"
+        class="transition-transform active:scale-95">luxass.dev</a
+      >
+    </div>
+    <div class="flex items-center">
+      <Icon name="ph:map-pin-simple" class="inline-block mr-2" size={20} />
+      <span class="transition-transform active:scale-95">Aarhus N, Denmark</span
+      >
+    </div>
+    <div class="flex items-center">
+      <Icon name="ph:github-logo" class="inline-block mr-2" size={20} />
+      <a
         href="https://github.com/luxass"
-        aria-label="GitHub"
-        class="inline-flex items-center gap-1 transition-transform active:scale-95 no-underline"
+        target="_blank"
+        class="transition-transform active:scale-95">@luxass</a
       >
-        <Icon name="carbon:logo-github" class="text-xl" />
-        GitHub
-      </Link>
-
-      <Link
-        href="https://www.linkedin.com/in/luxass"
-        aria-label="LinkedIn"
-        class="inline-flex items-center gap-1 transition-transform active:scale-95 no-underline"
+    </div>
+    <div class="flex items-center">
+      <Icon name="ph:linkedin-logo" class="inline-block mr-2" size={20} />
+      <a
+        href="https://linkedin.com/in/luxass"
+        target="_blank"
+        class="transition-transform active:scale-95">@luxass</a
       >
-        <Icon name="carbon:logo-linkedin" class="text-xl" />
-        LinkedIn
-      </Link>
     </div>
   </div>
 </header>

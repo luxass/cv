@@ -1,5 +1,5 @@
 ---
-import Footer from "../components/Footer.astro";
+import "../styles/globals.css";
 import Header from "../components/Header.astro";
 
 export interface Props {
@@ -21,7 +21,6 @@ const {
       }),
     )}`,
   ),
-  class: clazz,
 } = Astro.props;
 ---
 
@@ -54,38 +53,30 @@ const {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />
 
-    <link
-      rel="preload"
-      href="/fonts/dm-sans.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
   </head>
-  <body class="prose">
+  <body>
     <Header />
-    <main class="flex-1 p-4" class:list={clazz}>
+    <main class="flex-1">
       <slot />
     </main>
-    <Footer />
-    <style is:global>
-      html {
-        @apply: antialiased touch-manipulation scroll-smooth text-base;
-        text-rendering: optimizeLegibility;
-      }
-
-      body {
-        @apply: !text-neutral-800 !bg-neutral-100 dark:(!text-neutral-300 !bg-neutral-900) py-8 min-h-screen max-w-3xl md:!mx-auto !mx-4 font-sans flex flex-col justify-between min-h-100dvh;
-        font-family: "DM Sans", "DM Sans Fallback";
-      }
-
-      @font-face {
-        font-family: "DM Sans";
-        src: url("/fonts/dm-sans.woff2") format("woff2");
-        font-weight: 300 900;
-        font-style: normal;
-        font-display: swap;
-      }
-    </style>
+    <footer>
+      <p>
+        If you wan't to connect, feel free to
+        <a
+          href="mailto:mail@luxass.dev"
+          class="decoration-blue-600 underline decoration-wavy">reach out</a
+        > to me.
+      </p>
+      <p class="print:hidden">
+        You can find the <a
+          download
+          href="resume.pdf"
+          class="decoration-blue-600 underline decoration-wavy">PDF Version</a
+        > here.
+      </p>
+    </footer>
   </body>
 </html>

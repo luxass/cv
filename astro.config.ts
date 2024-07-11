@@ -6,9 +6,12 @@ import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [unocss({
-    injectReset: true,
-  }), icon()],
+  integrations: [
+    unocss({
+      injectReset: true,
+    }),
+    icon(),
+  ],
   prefetch: {
     prefetchAll: true,
     defaultStrategy: "load",
