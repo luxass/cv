@@ -6,8 +6,7 @@ export interface Props {
   title: string;
   description: string;
   image?: string;
-  class?: string;
-  lastUpdated?: string;
+  empty?: boolean;
 }
 
 const {
@@ -21,6 +20,7 @@ const {
       }),
     )}`,
   ),
+  empty = false,
 } = Astro.props;
 ---
 
@@ -61,25 +61,36 @@ const {
     />
   </head>
   <body>
-    <Header />
+    {!empty && <Header />}
     <main class="flex-1">
       <slot />
     </main>
-    <footer>
-      <p>
-        If you wan't to connect, feel free to
-        <a
-          href="mailto:mail@luxass.dev"
-          class="decoration-blue-600 underline decoration-wavy">reach out</a
-        > to me.
-      </p>
-      <p class="print:hidden">
-        You can find the <a
-          download
-          href="resume.pdf"
-          class="decoration-blue-600 underline decoration-wavy">PDF Version</a
-        > here.
-      </p>
-    </footer>
+    {
+      !empty && (
+        <footer>
+          <p>
+            If you wan't to connect, feel free to
+            <a
+              href="mailto:mail@luxass.dev"
+              class="decoration-blue-600 underline decoration-wavy"
+            >
+              reach out
+            </a>{" "}
+            to me.
+          </p>
+          <p class="print:hidden">
+            You can find the{" "}
+            <a
+              download
+              href="resume.pdf"
+              class="decoration-blue-600 underline decoration-wavy"
+            >
+              PDF Version
+            </a>{" "}
+            here.
+          </p>
+        </footer>
+      )
+    }
   </body>
 </html>
