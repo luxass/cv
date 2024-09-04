@@ -24,7 +24,7 @@
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.36",
     "@iconify-json/logos": "1.1.44",
-    "@iconify-json/octicon": "1.1.56",
+    "@iconify-json/octicon": "1.1.57",
     "@iconify-json/ph": "^1.1.13",
     "@luxass/eslint-config": "^4.8.0",
     "@types/node": "^18.19.39",
