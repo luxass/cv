@@ -1,16 +1,16 @@
+import {
+  Buffer,
+} from "node:buffer";
 // @ts-check
 import { existsSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import * as process from "node:process";
 import {
-  Buffer,
-} from "node:buffer";
-import {
   launch,
 } from "puppeteer";
 
 // @ts-expect-error testing
-// eslint-disable-next-line ts/no-unused-expressions
+
 Promise.withResolvers || (Promise.withResolvers = function withResolvers() {
   let a;
   let b;

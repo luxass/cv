@@ -1,8 +1,8 @@
+import netlify from "@astrojs/netlify";
 import { defineConfig } from "astro/config";
-import unocss from "unocss/astro";
 import icon from "astro-icon";
 import { FontaineTransform } from "fontaine";
-import netlify from "@astrojs/netlify";
+import unocss from "unocss/astro";
 
 // https://astro.build/config
 export default defineConfig({
