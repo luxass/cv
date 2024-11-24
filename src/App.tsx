@@ -1,111 +1,156 @@
-import {  Download, Github, Linkedin, Mail, Phone, Star } from 'lucide-react'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from './components/card'
-import { Badge } from './components/badge'
+import { GitHubIcon, LinkedInIcon, MailIcon } from "./components/icons";
 
 export function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <header className="mb-16 text-center">
-          <h1 className="text-4xl font-light text-gray-900 mb-2">John Doe</h1>
-          <p className="text-xl text-gray-600 mb-6">Full Stack Developer</p>
-          <div className="flex justify-center space-x-4 text-gray-600">
-            <a href="mailto:john.doe@example.com" className="flex items-center hover:text-gray-900">
-              <Mail className="w-4 h-4 mr-1" />
-              <span className="text-sm">Email</span>
+    <div className="min-h-screen bg-white print:min-h-0 print:p-6">
+      <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 print:px-4">
+        <header className="mb-16 text-center print:mb-8">
+          <h1 className="text-4xl font-light text-gray-900 mb-2 print:text-3xl">
+            Lucas Nørgård
+          </h1>
+          <div className="flex justify-center space-x-4 text-gray-600 print:text-sm">
+            <a
+              href="mailto:lucasnrgaard@gmail.com"
+              className="flex items-center hover:text-gray-900"
+            >
+              <MailIcon />
+              <span className="text-sm print:text-xs">
+                lucasnrgaard@gmail.com
+              </span>
             </a>
-            <a href="tel:+15551234567" className="flex items-center hover:text-gray-900">
-              <Phone className="w-4 h-4 mr-1" />
-              <span className="text-sm">Phone</span>
+            <a
+              href="https://linkedin.com/in/luxass"
+              className="flex items-center hover:text-gray-900"
+            >
+              <LinkedInIcon />
+              <span className="text-sm print:text-xs">@luxass</span>
             </a>
-            <a href="https://linkedin.com/in/johndoe" className="flex items-center hover:text-gray-900">
-              <Linkedin className="w-4 h-4 mr-1" />
-              <span className="text-sm">LinkedIn</span>
-            </a>
-            <a href="https://github.com/johndoe" className="flex items-center hover:text-gray-900">
-              <Github className="w-4 h-4 mr-1" />
-              <span className="text-sm">GitHub</span>
+            <a
+              href="https://github.com/luxass"
+              className="flex items-center hover:text-gray-900"
+            >
+              <GitHubIcon />
+              <span className="text-sm print:text-xs">@luxass</span>
             </a>
           </div>
+
+          <p className="mt-6 text-gray-600 max-w-xl mx-auto text-left print:text-sm print:mt-4">
+            I'm a software engineer with a strong focus on JavaScript,
+            TypeScript & Language Tooling. I'm passionate about open source and
+            I love to contribute to the community.
+            <br />
+            I'm currently working as a DevOps Engineer at Region Midtjylland,
+            where I help maintain a robust Kubernetes cluster and manage
+            critical microservices.
+          </p>
         </header>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-light text-gray-900 mb-4 pb-2 border-b">Experience</h2>
-          <div className="space-y-6">
+        <section className="mb-12 print:mb-6">
+          <h2 className="text-2xl font-light text-gray-900 mb-4 pb-2 border-b print:text-xl print:mb-2">
+            Experience
+          </h2>
+          <div className="space-y-6 print:space-y-3">
             <div>
-              <h3 className="text-lg font-medium text-gray-900">Senior Developer</h3>
-              <p className="text-gray-600 mb-2">Tech Solutions Inc. | 2020 - Present</p>
-              <ul className="list-disc list-inside text-gray-700 text-sm space-y-1">
-                <li>Led development of cloud-based SaaS platform</li>
-                <li>Mentored junior developers and conducted code reviews</li>
-                <li>Implemented CI/CD pipelines, improving deployment efficiency by 40%</li>
-              </ul>
+              <h3 className="text-lg font-medium text-gray-900 print:text-base">
+                Software Developer
+              </h3>
+              <p className="text-gray-600 mb-2 print:text-sm print:mb-1">
+                Region Midtjylland | May 2023 - September 2024
+              </p>
+
+              <p className="text-gray-700 text-sm print:text-xs">
+                As a Software Developer at Region Midtjylland from May 2023 to
+                September 2024, I developed clinician-facing solutions to
+                enhance daily workflows, implemented features to protect
+                clinicians during their work, improved efficiency and safety in
+                clinical environments, and focused on user-friendly interfaces
+                for a better clinician experience.
+              </p>
             </div>
             <div>
-              <h3 className="text-lg font-medium text-gray-900">Full Stack Developer</h3>
-              <p className="text-gray-600 mb-2">WebCraft Studios | 2017 - 2019</p>
-              <ul className="list-disc list-inside text-gray-700 text-sm space-y-1">
-                <li>Developed and maintained multiple client websites</li>
-                <li>Integrated third-party APIs and payment gateways</li>
-                <li>Optimized database queries, reducing load times by 30%</li>
-              </ul>
+              <h3 className="text-lg font-medium text-gray-900 print:text-base">
+                DevOps Engineer
+              </h3>
+              <p className="text-gray-600 mb-2 print:text-sm print:mb-1">
+                Region Midtjylland | September 2024 - Present
+              </p>
+              <p className="text-gray-700 text-sm print:text-xs">
+                As a DevOps Engineer at Region Midtjylland from September 2024
+                to Present, I play a crucial role in ensuring the timely
+                completion of solutions by assisting various teams. My
+                responsibilities include collaborating with my team to maintain
+                a robust Kubernetes cluster, which is essential for the
+                deployment and scaling of applications. Additionally, we manage
+                several critical microservices that are vital to the
+                organization's operations, ensuring they run smoothly and
+                efficiently.
+              </p>
             </div>
           </div>
         </section>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-light text-gray-900 mb-4 pb-2 border-b">Open Source Projects</h2>
-          <div className="space-y-6">
-            <Card className="bg-primary/5 hover:bg-primary/10 transition-colors">
-              <CardHeader>
-                <CardTitle>
-                  <a href="https://github.com/johndoe/awesome-project" className="hover:underline">
-                    Awesome Project
+        <section className="mb-12 print:mb-6">
+          <h2 className="text-2xl font-light text-gray-900 mb-4 pb-2 border-b print:text-xl print:mb-2">
+            Open Source Projects
+          </h2>
+          <p className="text-gray-700 text-sm mb-6 print:text-xs print:mb-3">
+            Here are some notable open source projects I have contributed to and
+            maintain. These range from developer tools to utility libraries.
+          </p>
+          <div className="space-y-6 print:space-y-3">
+            <div className="rounded-lg text-card-foreground shadow-xs bg-primary/5 hover:bg-primary/10 transition-colors print:bg-transparent print:hover:bg-transparent print:shadow-none border print:border-gray-200">
+              <div className="flex flex-col space-y-1.5 p-6 print:p-2">
+                <div className="text-2xl font-semibold leading-none tracking-tight print:text-base">
+                  <a
+                    href="https://github.com/luxass/vitest-testdirs"
+                    className="hover:underline"
+                  >
+                    vitest-testdirs
                   </a>
-                </CardTitle>
-                <CardDescription>
-                  A cutting-edge web framework for building scalable applications
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
+                </div>
+                <div className="text-sm text-muted-foreground print:text-xs">
+                  A utility for Vitest to create isolated test directories
+                </div>
+              </div>
+              <div className="p-6 pt-0 print:p-2">
                 <div className="flex items-center space-x-4">
-                  <Badge variant="secondary" className="flex items-center space-x-1">
-                    <Star className="w-3 h-3" />
-                    <span>1,000+</span>
-                  </Badge>
-                  <a href="https://github.com/johndoe/awesome-project" className="text-sm text-gray-600 hover:underline">
+                  <a
+                    href="https://github.com/luxass/vitest-testdirs"
+                    className="text-sm text-gray-600 hover:underline print:text-xs"
+                  >
                     View on GitHub
                   </a>
                 </div>
-              </CardContent>
-            </Card>
-            <Card className="bg-primary/5 hover:bg-primary/10 transition-colors">
-              <CardHeader>
-                <CardTitle>
-                  <a href="https://github.com/johndoe/cool-library" className="hover:underline">
-                    Cool Library
+              </div>
+            </div>
+            <div className="rounded-lg text-card-foreground shadow-xs bg-primary/5 hover:bg-primary/10 transition-colors print:bg-transparent print:hover:bg-transparent print:shadow-none border print:border-gray-200">
+              <div className="flex flex-col space-y-1.5 p-6 print:p-2">
+                <div className="text-2xl font-semibold leading-none tracking-tight print:text-base">
+                  <a
+                    href="https://github.com/luxass/unplugin-yaml"
+                    className="hover:underline"
+                  >
+                    unplugin-yaml
                   </a>
-                </CardTitle>
-                <CardDescription>
-                  A utility library for simplifying common programming tasks
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
+                </div>
+                <div className="text-sm text-muted-foreground print:text-xs">
+                  A unplugin that allow import of yaml files
+                </div>
+              </div>
+              <div className="p-6 pt-0 print:p-2">
                 <div className="flex items-center space-x-4">
-                  <Badge variant="secondary" className="flex items-center space-x-1">
-                    <Download className="w-3 h-3" />
-                    <span>10,000+ weekly</span>
-                  </Badge>
-                  <a href="https://github.com/johndoe/cool-library" className="text-sm text-gray-600 hover:underline">
+                  <a
+                    href="https://github.com/luxass/unplugin-yaml"
+                    className="text-sm text-gray-600 hover:underline print:text-xs"
+                  >
                     View on GitHub
                   </a>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </section>
       </main>
     </div>
-  )
+  );
 }
-
