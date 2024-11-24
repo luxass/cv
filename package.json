@@ -4,39 +4,29 @@
   "private": true,
   "packageManager": "pnpm@9.12.2",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "check": "astro check",
-    "preview": "astro preview",
+    "dev": "vite",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit",
-    "build:pdf": "node ./scripts/build-pdf.mjs"
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/netlify": "^5.5.4",
-    "@unocss/reset": "^0.63.4",
-    "astro": "^4.16.6",
-    "astro-icon": "^1.1.1",
-    "pdfjs-dist": "^4.7.76"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@iconify-json/carbon": "^1.2.3",
-    "@iconify-json/logos": "1.2.3",
-    "@iconify-json/octicon": "1.2.1",
-    "@iconify-json/ph": "^1.2.1",
-    "@luxass/eslint-config": "^4.12.1",
-    "@types/node": "^18.19.39",
-    "@unocss/eslint-plugin": "^0.63.4",
-    "astro-eslint-parser": "^1.0.3",
+    "@eslint-react/eslint-plugin": "^1.17.1",
+    "@luxass/eslint-config": "^4.13.0",
+    "@tailwindcss/vite": "4.0.0-beta.2",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react-swc": "^3.5.0",
     "eslint": "^9.13.0",
-    "eslint-plugin-astro": "^1.3.0",
     "eslint-plugin-format": "^0.1.2",
-    "fontaine": "^0.5.0",
-    "prettier-plugin-astro": "^0.14.1",
-    "puppeteer": "^23.6.0",
-    "typescript": "^5.6.3",
-    "unocss": "^0.63.4"
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.11.0",
+    "tailwindcss": "4.0.0-beta.2",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.10"
   }
 }
