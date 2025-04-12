@@ -19,11 +19,11 @@ export function App() {
               </span>
             </a>
             <a
-              href="https://linkedin.com/in/luxass"
+              href="https://linkedin.com/in/lucasnrgaard"
               className="flex items-center hover:text-gray-900"
             >
               <LinkedInIcon />
-              <span className="text-sm print:text-xs">@luxass</span>
+              <span className="text-sm print:text-xs">@lucasnrgaard</span>
             </a>
             <a
               href="https://github.com/luxass"
